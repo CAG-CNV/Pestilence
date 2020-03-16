@@ -53,17 +53,10 @@ patches-own[
             disp]
 
 to startup
-    ifelse file-exists? "C:/Users/glessner/Desktop"
-    [export-all-plots "C:/Users/glessner/Desktop/Pestilence/Pestilence Data.csv" ;;Because file locations will vary from system to system, you may want to change this to aviod continuous file selection.
-     set file "C:/Users/glessner/Desktop/Pestilence/Pestilence Data.csv"]
-    [ifelse file-exists? "C:/Users/glessner/Desktop"
-      [export-all-plots "C:/Users/glessner/Desktop/Pestilence/Pestilence Data.csv"
-       set file "C:/Users/glessner/Desktop/Pestilence/Pestilence Data.csv"]
-      [user-message "A .csv file needs to be created to output the data. Choose Halt then File-Export-All Plots and save on the Desktop by the name Pestilence the first time this message appears. You only need to create the file once. Select this file in the window that appears when File_Output is on."
-       set file user-file]
-    ]
+    export-all-plots "Pestilence_Data.csv"
+    set file "Pestilence_Data.csv"
     ask patches[set pcolor white]
-    import-pcolors-rgb "C:/Users/glessner/Desktop/Pestilence/Images/Welcome.png"
+    import-drawing "Images/Welcome.png"
     file-delete file
     file-open file
     file-type "first"
@@ -580,7 +573,7 @@ to disp-back
     if Background = "USA"[
       set usCities[78 41 -79 -13 32 29 6 -67 75 27 -57 -24 -73 -21 -1 -41 -6 -64 45 38 -84 19 40 12 -87 25 61 -55 52 21 -3 -55 32 -20 71 20 29 39 85 46 66 -27 -72 -12 32 21 7 -56 67 28 70 37]
       ;no-display
-      import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/USA.png"
+      import-drawing "Images/USA.png"
       adjust-color
       ;ask patches[
        ;         if pcolor > 7 and pcolor < 9.4 and pxcor < 51 [set pcolor gray + 2]
@@ -594,12 +587,12 @@ to disp-back
     ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     if Background = "World"[
-      import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/World.png"
+      import-drawing "Images/World.png"
       adjust-color
     ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "South Am"[
-    import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/sa.png"
+    import-drawing "Images/sa.png"
     ask patches[
                 if pcolor > 3 and pcolor < 8.5 [set pcolor gray + 2]
                 if (pcolor >= 0 and pcolor < 3) or pxcor = 100 or pycor = -100[set pcolor white - .001]
@@ -609,7 +602,7 @@ to disp-back
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "Europe"[
-    import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/Europe.png"
+    import-drawing "Images/Europe.png"
     ask patches[
                 if (pcolor > 4 and pcolor < 8.4) [set pcolor gray + 2]
                 if pcolor > 8.4 [set pcolor white]
@@ -619,7 +612,7 @@ to disp-back
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "Asia"[
-    import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/Asia.png"
+    import-drawing "Images/Asia.png"
     ask patches[
                 if (pcolor > 4 and pcolor < 8.6) [set pcolor gray + 2]
                 if pcolor > 8.6 [set pcolor white]
@@ -628,7 +621,7 @@ to disp-back
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "Africa"[
-    import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/Africa.png"
+    import-drawing "Images/Africa.png"
      ask patches[
                 if (pcolor > 2.5 and pcolor < 8.4) [set pcolor gray + 2]
                 if pcolor > 8.4 [set pcolor white]
@@ -638,19 +631,19 @@ to disp-back
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "Australia"[
-    import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/Aust.png"
+    import-drawing "Images/Aust.png"
     adjust-color
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "North Am"[
-    import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/NA.png"
+    import-drawing "Images/NA.png"
     adjust-color
    ]
    ;display
    ;ask patches with [ pcolor = gray + 2][if count patches with[pcolor = white] in-radius 1 < 2[set pcolor white]]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "PA"[
-     import-drawing "C:/Users/glessner/Desktop/Pestilence/Images/PA.png"
+     import-drawing "Images/PA.png"
       ask patches[
                 if (pcolor > 3 and pcolor < 8.6) [set pcolor gray + 2]
                 if pcolor > 8.6 [set pcolor white]
@@ -1216,10 +1209,10 @@ end
 to setup-file
 let line 0
   file-close
-  ifelse file-exists? "C:/Users/glessner/Desktop/Pestilence/Pestilence Data.csv"
-    [set file "C:/Users/glessner/Desktop/Pestilence/Pestilence Data.csv"] ;;Because file locations will vary from system to system, you may want to change this to aviod continuous file selection.
-    [ifelse file-exists? "C:/Users/glessner/Desktop/Pestilence/Pestilence Data.csv"
-      [set file "C:/Users/glessner/Desktop/Pestilence/Pestilence Data.csv"]
+  ifelse file-exists? "Pestilence_Data.csv"
+    [set file "Pestilence_Data.csv"] ;;Because file locations will vary from system to system, you may want to change this to aviod continuous file selection.
+    [ifelse file-exists? "Pestilence_Data.csv"
+      [set file "Pestilence_Data.csv"]
       [set file user-file]
     ]
   file-open file
