@@ -573,7 +573,7 @@ to disp-back
     if Background = "USA"[
       set usCities[78 41 -79 -13 32 29 6 -67 75 27 -57 -24 -73 -21 -1 -41 -6 -64 45 38 -84 19 40 12 -87 25 61 -55 52 21 -3 -55 32 -20 71 20 29 39 85 46 66 -27 -72 -12 32 21 7 -56 67 28 70 37]
       ;no-display
-      import-drawing "Images/USA.png"
+      import-pcolors "Images/USA.png"
       adjust-color
       ;ask patches[
        ;         if pcolor > 7 and pcolor < 9.4 and pxcor < 51 [set pcolor gray + 2]
@@ -587,12 +587,12 @@ to disp-back
     ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     if Background = "World"[
-      import-drawing "Images/World.png"
+      import-pcolors "Images/World.png"
       adjust-color
     ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "South Am"[
-    import-drawing "Images/sa.png"
+    import-pcolors "Images/sa.png"
     ask patches[
                 if pcolor > 3 and pcolor < 8.5 [set pcolor gray + 2]
                 if (pcolor >= 0 and pcolor < 3) or pxcor = 100 or pycor = -100[set pcolor white - .001]
@@ -602,7 +602,7 @@ to disp-back
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "Europe"[
-    import-drawing "Images/Europe.png"
+    import-pcolors "Images/Europe.png"
     ask patches[
                 if (pcolor > 4 and pcolor < 8.4) [set pcolor gray + 2]
                 if pcolor > 8.4 [set pcolor white]
@@ -612,7 +612,7 @@ to disp-back
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "Asia"[
-    import-drawing "Images/Asia.png"
+    import-pcolors "Images/Asia.png"
     ask patches[
                 if (pcolor > 4 and pcolor < 8.6) [set pcolor gray + 2]
                 if pcolor > 8.6 [set pcolor white]
@@ -621,7 +621,7 @@ to disp-back
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "Africa"[
-    import-drawing "Images/Africa.png"
+    import-pcolors "Images/Africa.png"
      ask patches[
                 if (pcolor > 2.5 and pcolor < 8.4) [set pcolor gray + 2]
                 if pcolor > 8.4 [set pcolor white]
@@ -631,19 +631,19 @@ to disp-back
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "Australia"[
-    import-drawing "Images/Aust.png"
+    import-pcolors "Images/Aust.png"
     adjust-color
    ]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "North Am"[
-    import-drawing "Images/NA.png"
+    import-pcolors "Images/NA.png"
     adjust-color
    ]
    ;display
    ;ask patches with [ pcolor = gray + 2][if count patches with[pcolor = white] in-radius 1 < 2[set pcolor white]]
  ;;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
    if Background = "PA"[
-     import-drawing "Images/PA.png"
+     import-pcolors "Images/PA.png"
       ask patches[
                 if (pcolor > 3 and pcolor < 8.6) [set pcolor gray + 2]
                 if pcolor > 8.6 [set pcolor white]
