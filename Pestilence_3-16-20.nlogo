@@ -56,7 +56,7 @@ to startup
     export-all-plots "Pestilence_Data.csv"
     set file "Pestilence_Data.csv"
     ask patches[set pcolor white]
-    import-drawing "Images/Welcome.png"
+    import-pcolors "Images/Welcome.png"
     file-delete file
     file-open file
     file-type "first"
